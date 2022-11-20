@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block main %}
+<h2>履歴</h2>
+<form action="" method="POST">
+    
+    <table>
+        <tr>
+            
+            <th class="4" width="50" height="10">コード</th>
+            <th class="1" width="50" height="10">開始日</th>
+            <th class="2" width="50" height="10">終わり日</th>
+            <th class="5" width="50" height="10">検索日</th>
+
+        </tr>
+        {% for history in lists %}
+        <tr>
+
+            <td width="150" height="20">{{history.code}}</td>
+            <td width="150" height="20">{{history.start}}</td>
+            <td width="150" height="20">{{history.end}}</td>
+            <td width="150" height="20">{{history.created}}</td>
+
+        </tr>
+        {% endfor %}
+        {% csrf_token %}
+    </table>
+</form>
+
+{% endblock %}

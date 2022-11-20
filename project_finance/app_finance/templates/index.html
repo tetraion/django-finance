@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block main %}
+<h2>株の詳細検索</h2>
+<p>{{ user }}さん、こんにちは！</p>
+
+<!-- フォームの表示 -->
+<form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+    <p>
+        <label>{{field.label}}</label>
+        {{field}}
+    </p>
+    {% endfor %}
+
+    <!-- csv出力 -->
+    <input type="submit" value="データ表示" name="nomal" class="btn btn-primary" />
+    <input type="submit" value="ローソク足表示" name="nomal2" class="btn btn-primary" />
+    <input type="submit" value="重回帰分析" name="nomal3" class="btn btn-primary" />
+    
+</form>
+<!-- <img src="data:image/png;base64,{{ chart | safe }}"> -->
+<!-- <p>現在の検索回数{{research_count}}</p> -->
+<br>
+<a href="{% url 'history' %}">履歴へ</a>
+{% endblock %}
